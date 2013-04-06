@@ -49,19 +49,12 @@ namespace emeltinfo2006
 
             foreach (var item in proteinsbynameandmass)
             {
-                if (!File.("data/eredmeny.txt"))
+                using (StreamWriter rw = File.AppendText("data/eredmeny.txt"))
                 {
-                    
+                    rw.WriteLine(item);
                 }
-                Console.WriteLine(item);
-            }
-            
+            } 
             #endregion
-
-            //foreach (var item in pl)
-            //{
-            //    Console.WriteLine(item.ToString());
-            //}
 
             Console.ReadLine();
         }
