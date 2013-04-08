@@ -47,13 +47,19 @@ namespace emeltinfo2006
             var orderedproteinsbyatomicmass = proteins.OrderBy(protein => protein.RelativeAtomicMass);
             var proteinsbynameandmass = proteins.Select(protein => protein.ShortName + " " + protein.RelativeAtomicMass);
 
-            foreach (var item in proteinsbynameandmass)
+            if (File.ReadLines("data/eredmeny.txt").Count() == 0)
             {
-                using (StreamWriter rw = File.AppendText("data/eredmeny.txt"))
+                foreach (var item in proteinsbynameandmass)
                 {
-                    rw.WriteLine(item);
+                    using (StreamWriter rw = File.AppendText("data/eredmeny.txt"))
+                    {
+                        rw.WriteLine(item);
+                    }
                 }
-            } 
+            }
+            #endregion
+            #region "4. Feladat"
+
             #endregion
 
             Console.ReadLine();
